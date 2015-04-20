@@ -12,10 +12,12 @@
 	<title>Canal SQY</title>
 </head>
 <body>
+
 <div id="container">
 <?php 
 $page= "";
-include "parts/header.php" ;
+include "parts/super_header.php";
+include "parts/header.php";
 ?>
 
 <?php //include"php/connexion.php"; ?>
@@ -43,9 +45,8 @@ include "parts/header.php" ;
 
 <!-- FIN CORPS DE PAGE -->
 <div class="clear"></div>
-</div>
 <?php include "parts/footer.php" ; ?>
-
+</div>
 
 
 	<script type="text/javascript">

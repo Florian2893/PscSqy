@@ -1,5 +1,7 @@
 <!-- SGR_mouvement_GDM -->
 
+	<div class="conteneur-page">
+
 		<div id="fil-ariane">Applications > SGR > Mouvement interne</div> <!--  FIL D'ARIANE -->
  
 		<h1 class="titre-section">Système de Gestion des Ressources</h1>
@@ -101,3 +103,4 @@
 				</form>
 			</div>
 		</div>
+	</div>	

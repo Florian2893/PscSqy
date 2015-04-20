@@ -1,4 +1,6 @@
 <!-- SGR_mouvement_ARH -->
+	
+	<div class="conteneur-page">
 
 		<div id="fil-ariane">Applications > SGR > Mouvement interne</div> <!--  FIL D'ARIANE -->
  
@@ -66,3 +68,4 @@
 				<div class="clear"></div>	
 			</form>
 		</div>
+	</div>	

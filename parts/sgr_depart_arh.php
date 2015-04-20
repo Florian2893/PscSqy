@@ -3,7 +3,7 @@
 
 <?php include"php/connexion.php"; ?>
 
-
+	<div class="conteneur-page">
 
 		<div id="fil-ariane">Applications > SGR > Nouveau départ</div> <!--  FIL D'ARIANE -->
  
@@ -61,7 +61,7 @@
 				<div class="clear"></div>
 			</form>
 		</div>
-
+	</div>
 		<script>
 			/*$('#test').click(function(){
 				$('#label-nom').append(' (Erreur: Ce champ doit être rempli)').css('color','red');
