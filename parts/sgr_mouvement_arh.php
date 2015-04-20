@@ -58,9 +58,11 @@
 					<label for="commentaire">Commentaire</label>
 					<textarea class="textarea-comment" name="" id="commentaire" maxlength="200"></textarea>
 				</p>
+				<div class="clear"></div>	
 				<p class="section-form">
 					<button type="submit" class="btn_defaut valider">Valider<span class="puce puce-droite">&#xf2f6;</span></button>
 					<button type="reset" class="nostyle reset">Réinitialiser les champs</button>
-				</p>	
+				</p>
+				<div class="clear"></div>	
 			</form>
 		</div>
