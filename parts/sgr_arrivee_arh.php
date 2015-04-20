@@ -3,14 +3,14 @@
 
 <?php include"php/connexion.php"; ?>
 
-<script>
+		<script>
 			function findService(str)
 			{
 				
 				var xmlhttp; 
 				if (str=="")
 	  			{
-	  				document.getElementById("Nom").innerHTML="";
+	  				document.getElementById("service").innerHTML="";
 	  				return;
 	  			} 
 				if (window.XMLHttpRequest)
@@ -35,6 +35,38 @@
 			}
 		</script>
 
+		<script>
+			function charcheRegime(str)
+			{
+				
+				var xmlhttp; 
+				if (str=="")
+	  			{
+	  				document.getElementById("regime").innerHTML="";
+	  				return;
+	  			} 
+				if (window.XMLHttpRequest)
+	  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+	  				xmlhttp=new XMLHttpRequest();
+	  			}
+				else
+	  			{// code for IE6, IE5
+	  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  			}
+				xmlhttp.onreadystatechange=function()
+	  			{
+	  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	    			{
+	    				var arr = xmlhttp.responseText;
+	    				document.getElementById("regime").innerHTML = arr;
+	    			}
+	  			}
+				xmlhttp.open("GET","js/Ajax/getRegime.php?q="+str,true);
+
+				xmlhttp.send();
+			}
+		</script>
+
 	<div class="conteneur-page">
 
 		<div id="fil-ariane">Applications > SGR > Nouvel Arrivant</div> <!--  FIL D'ARIANE -->
@@ -44,7 +76,7 @@
 		<h2 class="titre-partie-section">Saisie d'un nouvel arrivant</h2>
 
 		<div class="formulaire">
-	 		<form action="">
+	 		<form action="arrivant_ARH.php" method="POST">
 				<p class="section-form">
 					<label for="date-arrive">Date d'arrivée</label>
 					<input type="text" class="defaut editable" id="date-arrive">
@@ -90,7 +122,7 @@
 				</p>
 				<p class="section-form">
 					<label for="type-agent">Type agent</label>
-					<select type="text" class="defaut liste" id="type-agent">
+					<select type="text" class="defaut liste" id="type-agent" onchange="charcheRegime(this.value);">
 						<option value="" disabled="disabled" selected="selected">Sélectionner le type d'agent</option>
 						<?php
 							$resTypeAgen=$mysqli->query("SELECT `Id_Type_Agent`, `Type_Agent` FROM `Type_Agent` " );
@@ -106,14 +138,6 @@
 					<label for="regime">Régime de travail</label>
 					<select type="text" class="defaut liste" id="regime">
 						<option value="" disabled="disabled" selected="selected">Sélectionner le régime de travail</option>
-						<?php
-							$resRegime=$mysqli->query(" SELECT `Id_Regime_Travail`, `Regime_Travail` FROM `Regime_Travail` " );
-							while ($rowRegime=$resRegime->fetch_array (MYSQLI_ASSOC) )
-							{
-								echo '<option value="'.$rowRegime['Id_Regime_Travail'].'"';
-								echo '>'.$rowRegime['Regime_Travail'].'</option>';
-							}
-						?>
 					</select>
 				</p>
 				<p class="section-form">
@@ -122,7 +146,7 @@
 				</p>
 				<div class="clear"></div>
 				<p class="section-form">
-					<button type="submit" class="btn_defaut valider">Valider<span class="puce puce-droite">&#xf2f6;</span></button>
+					<button type="submit" class="btn_defaut valider" name="valide_ARG_Arrive">Valider<span class="puce puce-droite">&#xf2f6;</span></button>
 					<button type="reset" class="nostyle reset">Réinitialiser les champs</button>
 					<!-- <a href="#" id="test">TEST</a> -->
 				</p>
@@ -131,6 +155,8 @@
 			</form>
 		</div>
 	</div>
+		
+
 		<script>
 			/*$('#test').click(function(){
 				$('#label-nom').append(' (Erreur: Ce champ doit être rempli)').css('color','red');
