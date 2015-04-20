@@ -348,6 +348,10 @@ table.tableau{
 	width: 880px;
 }
 
+.date-picker-retraite{
+	display: none;
+}
+
 p.section-form{
 	float: left;
 	margin: 10px 20px;

@@ -23,6 +23,9 @@
 								<a href="index.php?page=sgr_arrivee_gdm"><li class="link-detail">Nouvelle arrivée_ GDM</li></a>
 								<a href="index.php?page=sgr_mouvement_arh"><li class="link-detail">Mouvement interne_ ARH</li></a>
 								<a href="index.php?page=sgr_mouvement_rdo"><li class="link-detail">Mouvement interne_ RDO</li></a>
+								<a href="index.php?page=sgr_mouvement_gdm"><li class="link-detail">Mouvement interne_ GDM</li></a>
+								<a href="index.php?page=sgr_depart_arh"><li class="link-detail">Nouveau départ_ ARH</li></a>
+								<a href="index.php?page=sgr_depart_gdm"><li class="link-detail">Nouveau départ_ GDM</li></a>
 							</ul>
 						</li>							
 					</ul>
