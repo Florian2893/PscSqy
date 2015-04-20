@@ -1,7 +1,7 @@
 <!-- SGR_arrivee_ARH -->
 
 
-<?php include"connexion.php"; ?>
+<?php include"php/connexion.php"; ?>
 
 
 
