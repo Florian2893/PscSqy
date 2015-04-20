@@ -1,0 +1,447 @@
+html,body{
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: ‘Ionicons’;
+	src: url(‘font/ionicons.eot’);
+	src: url(‘font/ionicons.eot?#iefix’) format(‘embedded-opentype’),
+	url(‘font/ionicons.woff’) format(‘woff’),
+	url(‘font/ionicons.ttf’) format(‘truetype’),
+	url(‘font/ionicons.svg#ioniconsRegular’) format(‘svg’);
+	font-weight: normal;
+	font-style: normal;
+}
+
+/***********************************/
+/***********PARTIE HEADER***********/
+/***********************************/
+
+/*conteneur*/
+#header{
+	
+}
+
+/*bandeau supérieur*/
+#logo-sg{
+	height: 65px;
+	margin: 28px 0;
+	border: none;
+}
+
+#logo-canal-sqy{
+	/* height: 65px; */
+	float: right;
+	margin: 43.5px 0;
+	border: none;
+}
+
+/*menu niveau 0*/
+#main_nav{
+	position: relative;
+}
+
+ul.list-menu{
+	list-style: none;
+	margin: 0;
+	padding: 8px 0;
+	border-top: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+}
+
+li.link-menu{
+	display: inline;
+	padding: 8px 20px;
+	position: relative;
+}
+
+li.link-menu:hover{
+	border-top: 3px solid #E60028;
+}
+
+/* .link-app{
+	position: relative;
+	right: 0;
+	padding: 6px 0;
+	margin-top: -6px;
+} */
+
+.link-app:hover{
+	border-top: 3px solid #E60028;
+	margin-top: -9px;
+}
+
+/*menu niveau -1*/
+.sous-rubrique{
+	display: none;
+	list-style: none;
+	right: 0;
+	/* top: 33px; */
+	margin: 0;
+	margin-top: 7px;
+	padding: 0;
+	width: 126px;
+	background-color: #e6e6e6;
+	position: absolute;
+}
+
+li.list-app{
+	padding: 7px 10px;
+	border: 1px solid #fff;
+	color: #666666;
+	position: relative;
+}
+
+.sous-rubrique a{
+	text-decoration: none;
+}
+
+li.list-app:hover{
+	color: #A2487B;
+	background-color: #c2c2c2;
+}
+ 
+.list-menu li:hover ul.sous-rubrique, .sous-rubrique li.list-app:hover ul.list-detail{
+	display: block;
+}
+
+.puce{
+	font-family: ionicons;
+	font-size: 16px;
+}
+
+.puce-droite{
+	float: right;
+}
+
+/*menu niveau -2*/
+ul.list-detail{
+	display: none;
+	position: absolute;
+	width: 160px;
+	padding: 0;
+	top: -1px;
+	left: 125px;
+}
+
+.link-detail a{
+	color: #666666;
+}
+
+.link-detail{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	background-color: #e6e6e6;
+	padding: 7px 10px;
+	border: 1px solid #fff;
+	color: #666666;
+}
+
+.link-detail:hover{
+	cursor: pointer;
+	background-color: #c2c2c2;
+	color: #A2487B;
+}
+
+/***********************************/
+/************PARTIE BODY************/
+/***********************************/
+
+#container{
+	width: 964px;
+	margin: auto;
+	padding: 0 30px 30px;
+	box-shadow: 2px 2px 10px #9D9D9D;
+}
+
+#fil-ariane{
+	font-size: 12px;
+	padding: 8px;
+	color: #666666;
+}
+
+h1.titre-section{
+	font-size: 24px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+h2.titre-partie-section{
+	font-size: 18px;
+	font-weight: normal;
+}
+
+/*************************************/
+/**********Tableau Sélection**********/
+/*************************************/
+
+.left-part-table{
+	float: left;
+}
+
+.selection th{
+	background-color: #e8193d;
+	color: #ffffff;
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 16px;
+	padding: 10px;
+	cursor: default;
+}
+
+.selection td{
+	vertical-align: middle;
+	text-align: center;
+	color: #666666;
+	font-size: 16px;
+	padding: 10px;
+}
+
+.selection tr:hover{
+	background-color: #e9e9e9;
+	cursor: pointer;
+}
+
+.selection tr.selected{
+	background-color: #E0E0E0;
+}
+
+/*************************************/
+/*************Formulaire**************/
+/*************************************/
+.defaut{
+	width: 400px;
+	/*height: 35px;*/
+	padding: 9px;
+	outline: none;
+	margin-bottom: 25px;
+}
+
+.editable{
+	border: solid 1px #c2c2c2;
+}
+
+.autocomplete{
+	background-color: #f2f2f2;
+	border: solid 1px #d9d9d9;
+	color: #995380;
+}
+
+.disable{
+	border: solid 1px #c2c2c2;
+	background-color: #dbdbdb;
+}
+
+.label-disable{
+	color: #d9d9d9;
+}
+
+.liste{
+	width: 420px;
+	border: solid 1px #c2c2c2;
+	padding: 8px;
+}
+
+label{
+	font-size: 12px;
+	color: #873d67;
+	display: block;
+	padding: 0 0 8px 0;
+	text-align: left;
+}
+
+.btn_defaut{
+	border: none;
+	width: 120px;
+	height: 30px;	
+	margin: 30px 0;
+	color: #fff;
+	cursor: pointer;
+}
+
+.btn-impression{
+	width: 220px;
+	background-color: #212121;
+	margin: 0;
+}
+
+.valider{
+	background-color: #212121;
+}
+
+.supprimer{
+	background-color: #e60028;
+}
+
+.defaut:focus{
+	border-color: #873d67;
+}
+
+.nostyle{
+	border: none;
+	background: none;
+}
+
+.reset{
+	color: blue;
+	text-decoration: underline;
+	float: right;
+	margin: 35px 50px;
+}
+
+.reset-form{
+	color: blue;
+	text-decoration: underline;
+	float: right;
+	margin: 35px 0;
+}
+
+.textarea-comment{
+	width: 400px;
+	max-width: 410px;
+	height: 75px;
+	max-height: 75px;
+}
+
+.textarea-comment:focus{
+	outline: none;
+	border: 1px solid #873d67;
+}
+
+.right-part-form{
+	float: right;
+}
+ 
+table.tableau{
+	width: 100%;
+	min-width: 625px;
+}
+
+.tableau td{
+	vertical-align: middle;
+	text-align: center;
+	height: 40px;
+	color: #666666;
+}
+
+.tableau th{
+	background-color: #e91a3e;
+	height: 40px;
+	color: #fff;
+	font-weight: normal;
+}
+
+.formulaire{
+	width: 920px;
+	margin: auto;
+}
+
+.formulaire-sgr-rdo{
+	width: 420px;
+	margin: 0 30px;
+}
+
+.civilite-arh{
+	width: 880px;
+}
+
+p.section-form{
+	float: left;
+	margin: 10px 20px;
+	height: 70px;
+}
+
+.clear {
+	clear: both;
+}
+
+/*******************************/
+/******Encart Récapitulatif*****/
+/*******************************/
+
+.recap-profil{
+	margin: 0 0 30px 30px;
+	width: 500px;
+	border: 1px solid #808080;
+	background-color: #EFEFEF;
+}
+
+legend{
+	color: #808080;
+}
+
+.info1{
+	float: left;
+	width: 250px;
+}
+
+.type-info{
+	color: #873d67;
+	display: inline-block;
+}
+
+.recap-comment{
+	margin-top: 10px;
+}
+
+.recap-droit-maia{
+	margin: 0 0 30px 0;
+	width: 500px;
+	border: 1px solid #808080;
+	background-color: #efefef;
+}
+
+.recap-droit-maia li.info-droit-maia{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul.list-droit-maia{
+	margin: 0;
+	padding: 0;
+}
+
+/************************/
+/********Footer**********/
+/************************/
+
+#footer{
+	background-color: #d4d4d4;
+	max-height: 35px;
+	width: 964px;
+	margin: auto;
+	padding: 0 30px;
+	box-shadow: 2px 2px 10px #9D9D9D;
+	position: relative;
+}
+
+#logo-footer{
+	padding: 6px 0;
+	float: left;
+}
+
+ul.list-footer{
+	/* display: inline; */
+	padding: 0;
+	margin: 10px 160px;
+	float: left;
+}
+
+li.link-footer{
+	display: inline-block;
+	list-style: none;
+	padding: 0 15px;
+	margin: 0;
+	font-size: 14px;
+	color: #696969;
+	border-right: 1px solid #696969;
+}
+
+li.link-footer:last-child{
+	border-right: none;
+}
+
