@@ -9,5 +9,10 @@
 		exit();
 	}
 
+	//traitement de lettres avec acents
+	if (!$mysqli->set_charset("utf8")) {
+    	printf("Erreur d'encodage de caractères utf8 : %s\n", $mysqli->error);
+	} 
+
 
  ?>
