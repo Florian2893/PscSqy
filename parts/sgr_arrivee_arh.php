@@ -1,5 +1,10 @@
 <!-- SGR_arrivee_ARH -->
 
+
+<?php include"connexion.php"; ?>
+
+
+
 		<div id="fil-ariane">Applications > SGR > Nouvel Arrivant</div> <!--  FIL D'ARIANE -->
  
 		<h1 class="titre-section">Système de Gestion des Ressources</h1>
@@ -35,13 +40,13 @@
 					<label for="ug">UG</label>
 					<select type="text" class="defaut liste" id="ug" oncharge="UG(this.value);">
 						<option value="" disabled="disabled" selected="selected">Sélectionnez une UG</option>
-						<?php/*
+						<?php
 							$resUG=$mysqli->query("SELECT `Id_UG`,`Libelle_UG` FROM `UG` " );
 							while ($rowUG=$resUG->fetch_array (MYSQLI_ASSOC) )
 							{
 								echo '<option value="'.$rowUG['Id_UG'].'"';
 								echo '>'.$rowUG['Libelle_UG'].'</option>';
-							}*/
+							}
 						?>
 					</select>
 				</p>
