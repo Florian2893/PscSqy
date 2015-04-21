@@ -44,6 +44,11 @@ html,body{
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+	cursor: pointer;
+}
+
+.notif:hover{
+	color: #FF7575;
 }
 
 .nombre-notif{
@@ -141,6 +146,21 @@ li.list-app:hover{
 
 .puce-droite{
 	float: right;
+	padding: 0 0 0 10px;
+}
+
+.puce-gauche{
+	float: left;
+	padding: 0 7px 0 0;
+}
+
+a.puce-impression{
+	text-decoration: none;
+	color: #666666;
+}
+
+a.puce-impression:hover{
+	color: #212121;
 }
 
 /*menu niveau -2*/
@@ -213,6 +233,10 @@ h2.titre-partie-section{
 	float: left;
 }
 
+.selection{
+	border-bottom: 1px solid #c2c2c2;
+}
+
 .selection th{
 	background-color: #e8193d;
 	color: #ffffff;
@@ -238,6 +262,18 @@ h2.titre-partie-section{
 
 .selection tr.selected{
 	background-color: #E0E0E0;
+}
+
+/*************************************/
+/**********Tableau Historique*********/
+/*************************************/
+
+table.table-historique{
+	margin: 30px auto 30px ;
+}
+
+.table-historique th{
+	padding: 10px 30px;
 }
 
 /*************************************/
@@ -285,18 +321,20 @@ label{
 }
 
 .btn_defaut{
-	border: none;
-	width: 120px;
+	border: none;/* 
+	width: 120px; */
 	height: 30px;	
 	margin: 30px 0;
 	color: #fff;
 	cursor: pointer;
+	padding: 0 10px;
 }
 
 .btn-impression{
-	width: 220px;
+	/* width: 220px; */
 	background-color: #212121;
 	margin: 0;
+	height: 30px;
 }
 
 .valider{
@@ -305,6 +343,16 @@ label{
 
 .supprimer{
 	background-color: #e60028;
+}
+
+.btn-historique{
+	color: #ffffff;
+	background-color: #212121;
+	padding: 7px;
+	text-decoration: none;
+	float: left;
+	margin-top: 30px;
+	font-size: 13px;
 }
 
 .defaut:focus{
@@ -451,6 +499,7 @@ ul.list-droit-maia{
 	margin: auto;
 	padding: 0 30px;
 	position: relative;
+	z-index: -1;
 }
 
 #logo-footer{

@@ -35,7 +35,55 @@
 					<td>SUC</td>
 					<td>Mouvement interne</td>
 				</tr>
+				<tr>
+					<td>Giacomo Guilizzoni</td>
+					<td>SUC</td>
+					<td>Mouvement interne</td>
+				</tr>
+				<tr>
+					<td>Giacomo Guilizzoni</td>
+					<td>SUC</td>
+					<td>Mouvement interne</td>
+				</tr>
+				<tr>
+					<td>Giacomo Guilizzoni</td>
+					<td>SUC</td>
+					<td>Mouvement interne</td>
+				</tr>
+				<tr>
+					<td>Giacomo Guilizzoni</td>
+					<td>SUC</td>
+					<td>Mouvement interne</td>
+				</tr>
+				<tr>
+					<td>Giacomo Guilizzoni</td>
+					<td>SUC</td>
+					<td>Mouvement interne</td>
+				</tr>
+				<tr>
+					<td>Giacomo Guilizzoni</td>
+					<td>SUC</td>
+					<td>Mouvement interne</td>
+				</tr>
+				<tr>
+					<td>Giacomo Guilizzoni</td>
+					<td>SUC</td>
+					<td>Mouvement interne</td>
+				</tr>
+				<tr>
+					<td>Giacomo Guilizzoni</td>
+					<td>SUC</td>
+					<td>Mouvement interne</td>
+				</tr>
+				<tr>
+					<td>Giacomo Guilizzoni</td>
+					<td>SUC</td>
+					<td>Mouvement interne</td>
+				</tr>
+
 			</table>
+
+			<a href="index.php?page=sgr_historique" class="btn-historique">Historique des impressions<span class="puce puce-gauche">&#xf2fd;</span></a>
 		</div>
 
 		<div class="right-part-form">
@@ -102,9 +150,9 @@
 							<option value="" disabled="disabled" selected="selected">Sélectionnez un badge</option>
 						</select>
 						
-						<button class="btn_defaut btn-impression">Imprimer les documents<span class="puce puce-droite">&#xf3a5;</span></button>
+						<button class="btn_defaut btn-impression">Imprimer les documents<span class="puce puce-gauche">&#xf3a5;</span></button>
 						<br>
-						<button type="submit" class="btn_defaut valider">Valider<span class="puce puce-droite">&#xf2f6;</span></button>
+						<button type="submit" class="btn_defaut valider">Valider<span class="puce puce-gauche">&#xf2f6;</span></button>
 				</form>
 			</div>
 		</div>
