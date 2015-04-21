@@ -4,7 +4,7 @@
 <?php
 
 	//récupéer des données dans le formulaire
-	valide_ARG_Arrive
+	//valide_ARG_Arrive
 	
 
  ?>

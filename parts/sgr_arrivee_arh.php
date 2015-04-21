@@ -67,6 +67,71 @@
 			}
 		</script>
 
+		<script>
+			/*$('#test').click(function(){
+				$('#label-nom').append(' (Erreur: Ce champ doit être rempli)').css('color','red');
+				$('#nom').css('border-color','red');
+			});*/
+
+		</script>
+
+		<script>
+			function checkGloo(str)
+			{
+				//message d'erreur
+				var arr = ' \(Erreur: Le matricule doublon\)';
+				//récuperer label d'affichage
+				var chaine_label;
+				var label_matricule = document.getElementById("label-matricule");
+				chaine_labe = new XMLSerializer().serializeToString(label_matricule); 
+				var aff_err =chaine_labe .indexOf(arr,0);
+				//la taille de matricule est bonne, commencer le traitement
+				var len = str.length;
+				if(len == 11)
+				{//quand il y a 11 caratères, le matricule est complet, commencer la vérification
+					var xmlhttp; 
+					
+					if (window.XMLHttpRequest)
+		  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+		  				xmlhttp=new XMLHttpRequest();
+		  			}
+					else
+		  			{// code for IE6, IE5
+		  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		  			}
+					xmlhttp.onreadystatechange=function()
+		  			{
+		  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		    			{
+		    				var resVerifier = xmlhttp.responseText;
+		    				if(resVerifier!=0)
+		    				{//le matricule saisi n'est pas unique
+								if(aff_err<0)
+		    					{//ajouter le message d'erreur qu'une seule fois
+		    						$(function(){$('#label-matricule').append(arr).css('color','red');})
+		    					}
+		    				}
+		    				else
+		    				{//le matricule est bon
+		    					if(aff_err>0)
+		    					{//remettre le champs de matricule au normal
+		    						$(function(){$('#label-matricule').css('color','#873D67');$('#label-matricule').empty();$('#label-matricule').append('Matricule');})
+		    					}
+		    				}
+		    			}
+		  			}
+					xmlhttp.open("GET","js/Ajax/verifierGLOO.php?q="+str,true);
+					xmlhttp.send();
+				}
+
+				
+				
+				
+				
+				
+			}
+		</script>
+
 	<div class="conteneur-page">
 
 		<div id="fil-ariane">Applications > SGR > Nouvel Arrivant</div> <!--  FIL D'ARIANE -->
@@ -82,8 +147,8 @@
 					<input type="text" class="defaut editable" id="date-arrive">
 				</p>
 				<p class="section-form">
-					<label for="matricule">Matricule</label>
-					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11">
+					<label for="matricule" id="label-matricule">Matricule</label>
+					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="checkGloo(this.value);">
 				</p>
 				<p class="section-form">
 					<label for="civilite">Civilité</label>
