@@ -21,16 +21,34 @@ html,body{
 
 /*conteneur des notifiations*/
 #super-header{
-	background-color: #d9d9d9;
+	background-color: #666666;
 	width: 964px;
 	margin: auto;
-	padding: 0 30px;
+	padding: 1px 30px;
 	z-index: 5;
+	color: #ffffff;
+	text-align: right;
+	font-size: 18px;
 }
 
 /*conteneur du header*/
 #header{
 	padding: 0 30px;
+}
+
+/*notification*/
+.notif{
+	font-family: ionicons;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.nombre-notif{
+	font-size: 14px;
+	color: #ffffff;
 }
 
 /*bandeau supérieur*/
@@ -454,10 +472,10 @@ li.link-footer{
 	margin: 0;
 	font-size: 14px;
 	color: #696969;
-	border-right: 1px solid #696969;
+	border-left: 1px solid #696969;
 }
 
-li.link-footer:last-child{
-	border-right: none;
+li.link-footer:first-child{
+	border-left: none;
 }
 
