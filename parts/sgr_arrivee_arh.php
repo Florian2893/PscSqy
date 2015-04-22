@@ -58,7 +58,7 @@
 			function checkGloo(str)
 			{
 				//message d'erreur
-				var arr = ' \(Erreur: Le matricule doublon\)';
+				var arr = ' \(Erreur: Ce matricule existe déjà\)';
 				//la taille de matricule est bonne, commencer le traitement
 				var len = str.length;
 				if(len == 11)
