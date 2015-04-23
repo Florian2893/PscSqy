@@ -160,30 +160,30 @@
 		<div class="formulaire">
 	 		<form id="sgr-arrive-arh" action="arrivant_ARH.php" method="POST">
 				<p class="section-form">
-					<label for="date-arrive" id="label-date-arrive">Date d'arrivée <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="date-arrive" id="label-date-arrive">Date d'arrivée <span class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<input type="text" class="defaut editable" id="date-arrive">
 				</p>
 				<p class="section-form">
-					<label for="matricule" id="label-matricule">Matricule <span class="error_show">(Erreur: ce matricule n'est pas correcte)</span></label>
+					<label for="matricule" id="label-matricule">Matricule <span class="error">(Erreur: ce matricule n'est pas correcte)</span></label>
 					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="checkGloo(this.value);">
 				</p>
 				<p class="section-form">
-					<label for="civilite">Civilité <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="civilite">Civilité <span class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste civilite-arh" id="civilite">
 						<option value="" disabled="disabled" selected="selected">Sélectionner la civilité</option>
 						<option value="M.">Monsieur</option>
 						<option value="Mme">Madame</option>
 					</select>
 				<p class="section-form">	
-					<label for="nom" id="label-nom">Nom <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="nom" id="label-nom">Nom <span class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<input type="text" class="defaut editable nom-arh" id="nom">
 				</p>
 				<p class="section-form">	
-					<label for="prenom">Prénom <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="prenom">Prénom <span class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<input type="text" class="defaut editable prenom-arh" id="prenom">
 				</p>
 				<p class="section-form">
-					<label for="ug">UG <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="ug">UG <span class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="ug" onchange="findService(this.value);">
 						<option value="" disabled="disabled" selected="selected">Sélectionnez une UG</option>
 						<?php 
@@ -197,13 +197,13 @@
 					</select>
 				</p>
 				<p class="section-form">
-					<label for="service">Service <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="service">Service <span class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="service">
 						<option value="" disabled="disabled" selected="selected">Sélectionner un service</option>
 					</select>
 				</p>
 				<p class="section-form">
-					<label for="type-agent">Type agent <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="type-agent">Type agent <span class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="type-agent" onchange="charcheRegime(this.value);">
 						<option value="" disabled="disabled" selected="selected">Sélectionner le type d'agent</option>
 						<?php
@@ -217,7 +217,7 @@
 					</select>
 				</p>
 				<p class="section-form">	
-					<label for="regime">Régime de travail <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="regime">Régime de travail <span class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="regime">
 						<option value="" disabled="disabled" selected="selected">Sélectionner le régime de travail</option>
 					</select>
