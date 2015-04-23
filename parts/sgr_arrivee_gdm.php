@@ -82,8 +82,6 @@
 				</tr>
 
 			</table>
-
-			<a href="index.php?page=sgr_historique" class="btn-historique">Historique des impressions<span class="puce puce-gauche">&#xf2fd;</span></a>
 		</div>
 
 		<div class="right-part-form">

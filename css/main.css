@@ -45,6 +45,7 @@ html,body{
 	-o-user-select: none;
 	user-select: none;
 	cursor: pointer;
+	position: relative;
 }
 
 .notif:hover{
@@ -52,8 +53,14 @@ html,body{
 }
 
 .nombre-notif{
+	position: absolute;
 	font-size: 14px;
 	color: #ffffff;
+	background-color: #ff0000;
+	top: 21px;
+	right: -3px;
+	padding: 0 6px;
+	display: block;
 }
 
 /*bandeau supérieur*/
@@ -344,7 +351,7 @@ label{
 .supprimer{
 	background-color: #e60028;
 }
-
+/* 
 .btn-historique{
 	color: #ffffff;
 	background-color: #212121;
@@ -353,7 +360,7 @@ label{
 	float: left;
 	margin-top: 30px;
 	font-size: 13px;
-}
+} */
 
 .defaut:focus{
 	border-color: #873d67;
