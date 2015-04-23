@@ -112,6 +112,7 @@
 				}
 			}
 		</script>
+		<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
 
 		<script>
 			function maxLengthTextarea(str){
@@ -123,11 +124,30 @@
 		</script>
 
 		<script>
-			/*function verifierChamps(){
-				var verifierDate = f
+			function verifierChamps(){
+				var form = $( "#sgr-arrive-arh" );
+				form.validate();
+				
+				alert( "Valid: " + form.valid() );
+				
+				/*
+				var mes_err = ' (Ce champs est obligatoire à remplir)';
+				var mess_err_matri = ' (Le matricule n\'est pas correcte)';
+				alert('dans fff');
+
+				if($('#date-arrive').val().length === 0) {
+					$('#label-date-arrive').append(mes_err).addClass('warning');
+					$('#valide_ARG_Arrive').attr('disabled','disabled');
 				}
-			}*/
+
+				if($('#matricule').val().length != 11){
+
+				}
+				*/
+			}
+
 		</script>
+
 
 	<div class="conteneur-page">
 
@@ -138,32 +158,32 @@
 		<h2 class="titre-partie-section">Saisie d'un nouvel arrivant</h2>
 
 		<div class="formulaire">
-	 		<form action="arrivant_ARH.php" method="POST">
+	 		<form id="sgr-arrive-arh" action="arrivant_ARH.php" method="POST">
 				<p class="section-form">
-					<label for="date-arrive">Date d'arrivée</label>
+					<label for="date-arrive" id="label-date-arrive">Date d'arrivée <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
 					<input type="text" class="defaut editable" id="date-arrive">
 				</p>
 				<p class="section-form">
-					<label for="matricule" id="label-matricule">Matricule</label>
-					<input type="text" class="defaut editable" id="matricule" name="matricule" value="GL00" maxlength="11" onkeyup="checkGloo(this.value);">
+					<label for="matricule" id="label-matricule">Matricule <span class="error_show">(Erreur: ce matricule n'est pas correcte)</span></label>
+					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="checkGloo(this.value);">
 				</p>
 				<p class="section-form">
-					<label for="civilite">Civilité</label>
+					<label for="civilite">Civilité <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste civilite-arh" id="civilite">
 						<option value="" disabled="disabled" selected="selected">Sélectionner la civilité</option>
 						<option value="M.">Monsieur</option>
 						<option value="Mme">Madame</option>
 					</select>
 				<p class="section-form">	
-					<label for="nom" id="label-nom" >Nom</label>
+					<label for="nom" id="label-nom">Nom <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
 					<input type="text" class="defaut editable nom-arh" id="nom">
 				</p>
 				<p class="section-form">	
-					<label for="prenom">Prénom</label>
+					<label for="prenom">Prénom <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
 					<input type="text" class="defaut editable prenom-arh" id="prenom">
 				</p>
 				<p class="section-form">
-					<label for="ug">UG</label>
+					<label for="ug">UG <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="ug" onchange="findService(this.value);">
 						<option value="" disabled="disabled" selected="selected">Sélectionnez une UG</option>
 						<?php 
@@ -177,13 +197,13 @@
 					</select>
 				</p>
 				<p class="section-form">
-					<label for="service">Service</label>
+					<label for="service">Service <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="service">
 						<option value="" disabled="disabled" selected="selected">Sélectionner un service</option>
 					</select>
 				</p>
 				<p class="section-form">
-					<label for="type-agent">Type agent</label>
+					<label for="type-agent">Type agent <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="type-agent" onchange="charcheRegime(this.value);">
 						<option value="" disabled="disabled" selected="selected">Sélectionner le type d'agent</option>
 						<?php
@@ -197,7 +217,7 @@
 					</select>
 				</p>
 				<p class="section-form">	
-					<label for="regime">Régime de travail</label>
+					<label for="regime">Régime de travail <span class="error_show">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="regime">
 						<option value="" disabled="disabled" selected="selected">Sélectionner le régime de travail</option>
 					</select>
@@ -208,8 +228,9 @@
 				</p>
 				<div class="clear"></div>
 				<p class="section-form">
-					<button type="submit" class="btn_defaut valider" id="valide_ARG_Arrive" onclick="verifierChamps();">Valider<span class="puce puce-droite">&#xf2f6;</span></button>
+					<button type="submit" class="btn_defaut valider" id="valide_ARG_Arrive" >Valider<span class="puce puce-droite">&#xf2f6;</span></button>
 					<button type="reset" class="nostyle reset">Réinitialiser les champs</button>
+					<button type="reset" class="btn_defaut valider" onclick="verifierChamps();">vérifier temporaire</button>
 					<!-- <a href="#" id="test">TEST</a> -->
 				</p>
 
