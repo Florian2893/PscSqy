@@ -271,7 +271,7 @@ h2.titre-partie-section{
 /*pour la partie de la vérification de formulaire */
 .error{
 	display: none;
-}       
+}
  
 .error_show{
 	font-size: 12px;
