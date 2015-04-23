@@ -129,8 +129,6 @@
 			}*/
 		</script>
 
-		verifierChamps
-
 	<div class="conteneur-page">
 
 		<div id="fil-ariane">Applications > SGR > Nouvel Arrivant</div> <!--  FIL D'ARIANE -->
@@ -158,11 +156,11 @@
 					</select>
 				<p class="section-form">	
 					<label for="nom" id="label-nom" >Nom</label>
-					<input type="text" class="defaut editable" id="nom">
+					<input type="text" class="defaut editable nom-arh" id="nom">
 				</p>
 				<p class="section-form">	
 					<label for="prenom">Prénom</label>
-					<input type="text" class="defaut editable" id="prenom">
+					<input type="text" class="defaut editable prenom-arh" id="prenom">
 				</p>
 				<p class="section-form">
 					<label for="ug">UG</label>

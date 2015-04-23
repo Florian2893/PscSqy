@@ -424,7 +424,15 @@ table.tableau{
 }
 
 .civilite-arh{
-	width: 880px;
+	width: 253px;
+}
+
+.nom-arh{
+	width: 253px;
+}
+
+.prenom-arh{
+	width: 253px;
 }
 
 .date-picker-retraite{
