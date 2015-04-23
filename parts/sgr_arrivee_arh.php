@@ -86,6 +86,7 @@
 		    				if(resVerifier!=0)
 		    				{//le matricule saisi n'est pas unique
 		    					$('#span-matricule2').removeClass("error").addClass("error_show");
+		    					$('#valide_ARG_Arrive').attr('disabled','disabled');
 								/*if(aff_err<0)
 		    					{//ajouter le message d'erreur qu'une seule fois
 		    						$(function(){
@@ -97,6 +98,7 @@
 		    				else
 		    				{//le matricule est bon
 		    					$('#span-matricule2').removeClass("erro_show").addClass("error");
+		    					$('#valide_ARG_Arrive').removeAttr('disabled');
 		    					/*if(aff_err>0)
 		    					{//remettre le champs de matricule au normal
 		    						$(function(){
@@ -134,6 +136,7 @@
 				$("select option:selected").each(function (){
 					if( $(this).val().length === 0){
 						$(this).parent().siblings().children().removeClass("error").addClass("error_show");
+						nb_err++;
 					}
 					else{
 						$(this).parent().siblings().children().removeClass("erro_show").addClass("error");
@@ -144,6 +147,7 @@
 				$("input").each(function(){
 					if($(this).val().length <3) {
 						$(this).siblings().children().removeClass("error").addClass("error_show");
+						nb_err++;
 					}
 					else{
 						$(this).siblings().children().removeClass("erro_show").addClass("error");
@@ -159,6 +163,8 @@
 				else{
 					$('#span-matricule').removeClass("erro_show").addClass("error");
 				}
+
+				alert(nb_err);
 
 
 				//si il y a un ou des erreurs 
