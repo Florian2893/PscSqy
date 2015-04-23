@@ -5,7 +5,7 @@
     $q = $_REQUEST["q"];
 
     //afficher le option
-    echo '<option value=\"\" disabled=\"disabled\" selected=\"selected\">Sélectionner un service</option>';
+    echo '<option value="" disabled=\"disabled\" selected=\"selected\">Sélectionner un service</option>';
     //chercher les services de cette UG
     $resService=$mysqli->query("SELECT `Id_service`, `Libelle_service` FROM `Service` WHERE `Id_UG` Like '" ."$q". "' " ) ;
 

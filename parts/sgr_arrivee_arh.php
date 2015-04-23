@@ -58,18 +58,18 @@
 			function checkGloo(str)
 			{
 				//message d'erreur
-				var arr = ' \(Erreur: Ce matricule existe déjà\)';
+				//var arr = ' \(Erreur: Ce matricule existe déjà\)';
 				//la taille de matricule est bonne, commencer le traitement
 				var len = str.length;
 				if(len == 11)
 				{//quand il y a 11 caratères, le matricule est complet, commencer la vérification
 					var xmlhttp; 
 					//récuperer label d'affichage
-					var chaine_label;
-					var label_matricule = document.getElementById("label-matricule").innerHTML;
-					chaine_labe = label_matricule.toString();
+					//var chaine_label;
+					//var label_matricule = document.getElementById("label-matricule").innerHTML;
+					//chaine_labe = label_matricule.toString();
 					//new XMLSerializer().serializeToString(label_matricule); 					
-					var aff_err =chaine_labe.indexOf(arr,0);
+					//var aff_err =chaine_labe.indexOf(arr,0);
 					if (window.XMLHttpRequest)
 		  			{// code for IE7+, Firefox, Chrome, Opera, Safari
 		  				xmlhttp=new XMLHttpRequest();
@@ -85,17 +85,19 @@
 		    				var resVerifier = xmlhttp.responseText;
 		    				if(resVerifier!=0)
 		    				{//le matricule saisi n'est pas unique
-								if(aff_err<0)
+		    					$('#span-matricule2').removeClass("error").addClass("error_show");
+								/*if(aff_err<0)
 		    					{//ajouter le message d'erreur qu'une seule fois
 		    						$(function(){
 		    							$('#label-matricule').append(arr).css('color','red');
 		    							$('#valide_ARG_Arrive').attr('disabled','disabled');
 		    						})
-		    					}
+		    					}*/
 		    				}
 		    				else
 		    				{//le matricule est bon
-		    					if(aff_err>0)
+		    					$('#span-matricule2').removeClass("erro_show").addClass("error");
+		    					/*if(aff_err>0)
 		    					{//remettre le champs de matricule au normal
 		    						$(function(){
 		    							$('#label-matricule').css('color','#873D67');
@@ -103,7 +105,7 @@
 		    							$('#label-matricule').append('Matricule');
 		    							$('#valide_ARG_Arrive').removeAttr('disabled');
 		    						})
-		    					}
+		    					}*/
 		    				}
 		    			}
 		  			}
@@ -125,25 +127,59 @@
 
 		<script>
 			function verifierChamps(){
-				var form = $( "#sgr-arrive-arh" );
-				form.validate();
-				
-				alert( "Valid: " + form.valid() );
-				
-				/*
-				var mes_err = ' (Ce champs est obligatoire à remplir)';
-				var mess_err_matri = ' (Le matricule n\'est pas correcte)';
-				alert('dans fff');
+				//compteur d'erreur, si égale 0 sans erreur
+				var nb_err = 0; 
 
-				if($('#date-arrive').val().length === 0) {
-					$('#label-date-arrive').append(mes_err).addClass('warning');
-					$('#valide_ARG_Arrive').attr('disabled','disabled');
+				//pour controler tous les select 
+				$("select option:selected").each(function (){
+					if( $(this).val().length === 0){
+						$(this).parent().siblings().children().removeClass("error").addClass("error_show");
+					}
+					else{
+						$(this).parent().siblings().children().removeClass("erro_show").addClass("error");
+					}
+				})
+
+				//pour controler tous les input
+				$("input").each(function(){
+					if($(this).val().length <3) {
+						$(this).siblings().children().removeClass("error").addClass("error_show");
+					}
+					else{
+						$(this).siblings().children().removeClass("erro_show").addClass("error");
+					}
+
+				})
+
+				//contoler le matricule				
+				if( $('#matricule').val().substr(0, 4)!='GL00' || $('#matricule').val().length != 11) {
+					$('#span-matricule').removeClass("error").addClass("error_show");
+					nb_err++;
+				}
+				else{
+					$('#span-matricule').removeClass("erro_show").addClass("error");
 				}
 
-				if($('#matricule').val().length != 11){
 
-				}
-				*/
+				//si il y a un ou des erreurs 
+				//rester
+
+				//sinon ajouter dans bdd par ajax 
+
+				
+
+
+
+
+
+
+				
+				//return false;
+		
+				//action="arrivant_ARH.php" method="POST"
+
+
+				
 			}
 
 		</script>
@@ -158,32 +194,33 @@
 		<h2 class="titre-partie-section">Saisie d'un nouvel arrivant</h2>
 
 		<div class="formulaire">
-	 		<form id="sgr-arrive-arh" action="arrivant_ARH.php" method="POST">
+	 		<form id="sgr-arrive-arh" >
 				<p class="section-form">
-					<label for="date-arrive" id="label-date-arrive">Date d'arrivée <span class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="date-arrive">Date d'arrivée <span id="span-date-arrive" class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<input type="text" class="defaut editable" id="date-arrive">
 				</p>
 				<p class="section-form">
-					<label for="matricule" id="label-matricule">Matricule <span class="error">(Erreur: ce matricule n'est pas correcte)</span></label>
+					<label for="matricule" id="label-matricule">Matricule <span id="span-matricule" class="error">(Erreur: ce matricule n'est pas correcte)</span>
+						<span id="span-matricule2" class="error">(Erreur: celui exsite déjà)</span></label>
 					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="checkGloo(this.value);">
 				</p>
 				<p class="section-form">
-					<label for="civilite">Civilité <span class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="civilite">Civilité <span id="span-civilite" class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste civilite-arh" id="civilite">
 						<option value="" disabled="disabled" selected="selected">Sélectionner la civilité</option>
 						<option value="M.">Monsieur</option>
 						<option value="Mme">Madame</option>
 					</select>
 				<p class="section-form">	
-					<label for="nom" id="label-nom">Nom <span class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="nom" id="label-nom">Nom <span id="span-nom" class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<input type="text" class="defaut editable nom-arh" id="nom">
 				</p>
 				<p class="section-form">	
-					<label for="prenom">Prénom <span class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="prenom">Prénom <span id="span-prenom" class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<input type="text" class="defaut editable prenom-arh" id="prenom">
 				</p>
 				<p class="section-form">
-					<label for="ug">UG <span class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="ug">UG <span id="span-ug" class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="ug" onchange="findService(this.value);">
 						<option value="" disabled="disabled" selected="selected">Sélectionnez une UG</option>
 						<?php 
@@ -197,13 +234,13 @@
 					</select>
 				</p>
 				<p class="section-form">
-					<label for="service">Service <span class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="service">Service <span id="span-service" class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="service">
 						<option value="" disabled="disabled" selected="selected">Sélectionner un service</option>
 					</select>
 				</p>
 				<p class="section-form">
-					<label for="type-agent">Type agent <span class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="type-agent">Type agent <span id="span-type-agent" class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="type-agent" onchange="charcheRegime(this.value);">
 						<option value="" disabled="disabled" selected="selected">Sélectionner le type d'agent</option>
 						<?php
@@ -217,7 +254,7 @@
 					</select>
 				</p>
 				<p class="section-form">	
-					<label for="regime">Régime de travail <span class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="regime">Régime de travail <span id="span-regime" class="error">(Erreur: ce champs est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="regime">
 						<option value="" disabled="disabled" selected="selected">Sélectionner le régime de travail</option>
 					</select>
@@ -228,9 +265,8 @@
 				</p>
 				<div class="clear"></div>
 				<p class="section-form">
-					<button type="submit" class="btn_defaut valider" id="valide_ARG_Arrive" >Valider<span class="puce puce-droite">&#xf2f6;</span></button>
+					<button type="button" class="btn_defaut valider" id="valide_ARG_Arrive" onclick="verifierChamps();">Valider<span class="puce puce-droite">&#xf2f6;</span></button>
 					<button type="reset" class="nostyle reset">Réinitialiser les champs</button>
-					<button type="reset" class="btn_defaut valider" onclick="verifierChamps();">vérifier temporaire</button>
 					<!-- <a href="#" id="test">TEST</a> -->
 				</p>
 
