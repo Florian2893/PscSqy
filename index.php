@@ -54,7 +54,7 @@ include "parts/header.php";
 			$.datepicker.setDefaults($.datepicker.regional["fr"]);
 			$('#date-arrive').datepicker({
 				dateFormat : 'dd/mm/yy',
-				minDate : 0
+				minDate : +1
 			});
 			$('#date-mouvement').datepicker({
 				dateFormat : 'dd/mm/yy',
