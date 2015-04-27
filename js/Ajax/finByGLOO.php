@@ -4,12 +4,20 @@
     // récuperer le matricule entier
     $q = $_REQUEST["q"];
 
-    //chercher le nom dans la table User_Table par matricule
-    $res=$mysqli->query("SELECT * from `User_Table` where `matricule` = '" ."$q". "' " ) ;
+    //chercher le nom dans la table User_Table par matricule   
+    $res=$mysqli->query("SELECT `Nom`, `Prenom`,`Libelle_UG`, `Service`.`Libelle_service`, `Type_Agent` 
+		from `User_Table`,`Service`,`UG`,`Type_Agent` 
+		where `User_Table`.`id_service` = `Service`.`id_service` 
+		and `Service`.`Id_UG` = `UG`.`Id_UG`
+		and `User_Table`.`Id_Type_Agent` = `Type_Agent`.`Id_Type_Agent`
+		and `matricule` = '" ."$q". "' " );
     $row=$res->fetch_array (MYSQLI_ASSOC);
 
     //retourner la taille de résultat de recherche, si c'est 0, le matricule est unique OK, sinon KO
+    if(sizeof($row) >0)
+    {// le matricule est correcte, retourne le nom, prenom, ug, service, regime pour autorempir
+    	echo($row['Nom'].','.$row['Prenom'].','.$row['Libelle_UG'].','.$row['Libelle_service'].','.$row['Type_Agent']);
+    }
 
-    print_r($row['Nom']);
     
 ?>

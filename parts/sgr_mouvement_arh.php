@@ -28,6 +28,16 @@
 		</script>
 
 		<script>
+			TabSpec={À:'A',Á:'A',Â:'A',Ã:'A',Ä:'A',Å:'A',à:'a',á:'a',â:'a',ã:'a',ä:'a',å:'a',Ò:'O',Ó:'O',Ô:'O',Õ:'O',Ö:'O',Ø:'O',ò:'o',ó:'o',ô:'o',õ:'o',ö:'o',ø:'o',È:'E',É:'E',Ê:'E',Ë:'E',è:'e',é:'e',ê:'e',ë:'e',Ç:'C',ç:'c',Ì:'I',Í:'I',Î:'I',Ï:'I',ì:'i',í:'i',î:'i',ï:'i',Ù:'U',Ú:'U',Û:'U',Ü:'U',ù:'u',ú:'u',û:'u',ü:'u',ÿ:'y',Ñ:'N',ñ:'n'};
+			 
+			function replaceSpec(Texte){
+				var reg=/([ÀÁÂÒÓÔÕÖØòÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ])/g
+				Texte=Texte.replace(reg,function(){return TabSpec[arguments[1]];})
+				return Texte
+			 }   
+		</script>
+
+		<script>
 			function chercheParGloo(str)
 			{
 				var str=str.toUpperCase();
@@ -51,27 +61,16 @@
 		  			{
 		  				if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		    			{
-		    				var reponse = xmlhttp.responseText;
-		    				alert(reponse);
-		    				//alert(reponse["Nom"]);
-		    				// if(resVerifier!=0)
-		    				// {//le matricule saisi n'est pas unique
-		    					
-		    				// }
-		    				// else
-		    				// {//le matricule est bon
-		    				// 	$('#span-matricule2').removeClass("erro_show").addClass("error");
-		    				// 	$('#valide_ARG_Arrive').removeAttr('disabled');
-		    				// 	if(aff_err>0)
-		    				// 	{//remettre le champs de matricule au normal
-		    				// 		$(function(){
-		    				// 			$('#label-matricule').css('color','#873D67');
-		    				// 			$('#label-matricule').empty();
-		    				// 			$('#label-matricule').append('Matricule');
-		    				// 			$('#valide_ARG_Arrive').removeAttr('disabled');
-		    				// 		})
-		    				// 	}
-		    				// }
+		    				var reponse = xmlhttp.responseText.split(",");
+		    				//la partie d'autocomplir
+		    				$(function(){
+		    					$('#nom').val(reponse[0]);
+		    					$('#prenom').val(reponse[1]);
+		    					$('#ug-depart').val(reponse[2]);
+		    					$('#service-depart').val(reponse[3]);
+		    					$('#type-agent').val(reponse[4]);
+
+		    				})
 		    			}
 		  			}
 					xmlhttp.open("GET","js/Ajax/finByGLOO.php?q="+str,true);
@@ -80,6 +79,65 @@
 
 			}
 		</script>
+
+		<script>
+			function chercheParNom(str)
+			{
+				var str = replaceSpec(str.toUpperCase());
+				document.getElementById("nom").value=str;
+
+				var xmlhttp; 
+				if (window.XMLHttpRequest)
+				{// code for IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp=new XMLHttpRequest();
+				}
+				else
+				{// code for IE6, IE5
+					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange=function()
+				{
+					if (xmlhttp.readyState==4 && xmlhttp.status==200)
+					{
+						var reponse = xmlhttp.responseText;
+						var taille = reponse.length;
+						var entete = reponse.substring(1, 2);
+						var resUtile = reponse.substring(2, taille);
+
+						switch(entete){
+							case "0":
+								alert(resUtile);
+								break;
+							case "1":
+								//il y a qu'une seule ligne
+								champs = resUtile.split(",");
+								$(function(){
+									$('#matricule').val(champs[0]);
+		    						$('#nom').val(champs[1]);
+			    					$('#prenom').val(champs[2]);
+			    					$('#ug-depart').val(champs[3]);
+			    					$('#service-depart').val(champs[4]);
+			    					$('#type-agent').val(champs[5]);
+		    					})
+		    					break;
+
+							case "2":
+								alert(resUtile);
+								break;
+
+						}
+						//var reponse = xmlhttp.responseText.split(",");
+						//la partie d'autocomplir
+					}
+				}
+				xmlhttp.open("GET","js/Ajax/finByName.php?q="+str,true);
+				xmlhttp.send();
+			}
+
+		</script>
+
+
+
 
 		<script>
 			function verifierChamps(){
@@ -109,6 +167,15 @@
 
 				})
 
+				//contoler le matricule				
+				if( $('#matricule').val().substr(0, 4)!='GL00' || $('#matricule').val().length <= 11) {
+					$('#span-matricule').removeClass("error").addClass("error_show");
+					nb_err++;
+				}
+				else{
+					$('#span-matricule').removeClass("erro_show").addClass("error");
+				}
+
 				alert(nb_err);
 			}
 		</script>	
@@ -132,16 +199,18 @@
 		<div class="formulaire">
 	 		<form>
 				<p class="section-form">
-					<label for="matricule">Matricule</label>
+					<label for="matricule">Matricule <span id="span-matricule" class="error">(Erreur: ce champ est obligatoire)</span>
+						<span id="span-matricule2" class="error">(Erreur: celui n'exsite pas!)</span></label>
 					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="chercheParGloo(this.value);">
 				</p>	
 				<p class="section-form">	
-					<label for="nom">Nom</label>
-					<input type="text" class="defaut editable" id="nom">
+					<label for="nom">Nom <span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span>
+						<span id="span-nom2" class="error">(Erreur: ce champ est obligatoire)</span></label>
+					<input type="text" class="defaut editable" id="nom" onkeyup="chercheParNom(this.value);">
 				</p>
 				<p class="section-form">	
 					<label for="prenom">Prénom</label>
-					<input type="text" class="defaut editable" id="prenom">
+					<input type="text" class="defaut autocomplete" id="prenom">
 				</p>
 				<p class="section-form">
 					<label for="ug-depart">UG de départ</label>
