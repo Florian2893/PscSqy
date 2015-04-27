@@ -57,6 +57,12 @@
 		<script>
 			function checkGloo(str)
 			{
+
+
+				var str=str.toUpperCase();
+				document.getElementById("matricule").value=str;
+				
+
 				//message d'erreur
 				//var arr = ' \(Erreur: Ce matricule existe déjà\)';
 				//la taille de matricule est bonne, commencer le traitement
@@ -114,6 +120,7 @@
 					xmlhttp.open("GET","js/Ajax/verifierGLOO.php?q="+str,true);
 					xmlhttp.send();
 				}
+
 			}
 		</script>
 		<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
@@ -125,6 +132,16 @@
 					alert('Votre commentaire ne peut pasdépasser 200 caratères!');
 				}
 			}
+		</script>
+
+		<script>
+			TabSpec={À:'A',Á:'A',Â:'A',Ã:'A',Ä:'A',Å:'A',à:'a',á:'a',â:'a',ã:'a',ä:'a',å:'a',Ò:'O',Ó:'O',Ô:'O',Õ:'O',Ö:'O',Ø:'O',ò:'o',ó:'o',ô:'o',õ:'o',ö:'o',ø:'o',È:'E',É:'E',Ê:'E',Ë:'E',è:'e',é:'e',ê:'e',ë:'e',Ç:'C',ç:'c',Ì:'I',Í:'I',Î:'I',Ï:'I',ì:'i',í:'i',î:'i',ï:'i',Ù:'U',Ú:'U',Û:'U',Ü:'U',ù:'u',ú:'u',û:'u',ü:'u',ÿ:'y',Ñ:'N',ñ:'n'};
+			 
+			function replaceSpec(Texte){
+				var reg=/([ÀÁÂÒÓÔÕÖØòÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ])/g
+				Texte=Texte.replace(reg,function(){return TabSpec[arguments[1]];})
+				return Texte
+			 }   
 		</script>
 
 		<script>
@@ -164,32 +181,51 @@
 					$('#span-matricule').removeClass("erro_show").addClass("error");
 				}
 
-				alert(nb_err);
+				//alert(nb_err);
 
+				if(true)
+				{//il n'y a pas d'erreurs dans le formulaire donc l'insertion dans base de données 
+					var date_arrive = $("#date-arrive").val();
+					var matricule = $("#matricule").val();
+					var civilite = $("#civilite").val();
+					var nom = $("#nom").val();
+					var prenom = $("#prenom").val();
+					var ug = $("#ug").val();
+					var service = $("#service").val();
+					var type_agent = $("#type-agent").val();
+					var regime = $("#regime").val();
+					var commentaire = $("#commentaire").val();
 
-				//si il y a un ou des erreurs 
-				//rester
+					//créer un chaine pour envyer par ajax
+					var dataString = "date_arrive1=" + date_arrive+
+				    				"&matricule1="+ matricule +
+				    				"&civilite1="+ civilite +
+				    				"&nom1="+ nom +"&prenom1="+ prenom +
+				    				"&ug1="+ ug +"&service1="+ service +
+				    				"&type_agent1="+ type_agent+"&regime1="+ regime +
+				    				"&commentaire1="+ commentaire;
 
-				//sinon ajouter dans bdd par ajax 
+					//alert(dataString);
+					//partie ajax pour 
+					$.ajax({
+					url: "php/arrivant_ARH.php",
+					type: "POST",
+					data: dataString,
 
-				
+					success: function(resulat_php){
+						alert(resulat_php);
+					}
+				});
+ 
 
-
-
-
-
-
-				
-				//return false;
-		
-				//action="arrivant_ARH.php" method="POST"
-
-
-				
+				}
 			}
 
 		</script>
 
+		<script>
+			
+		</script>
 
 	<div class="conteneur-page">
 
@@ -200,9 +236,9 @@
 		<h2 class="titre-partie-section">Saisie d'un nouvel arrivant</h2>
 
 		<div class="formulaire">
-	 		<form id="sgr-arrive-arh" >
+	 		<form>
 				<p class="section-form">
-					<label for="date-arrive">Date d'arrivée <span id="span-date-arrive" class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="date-arrive">Date d'arrivée <span id="span-date-arrive" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<input type="text" class="defaut editable" id="date-arrive">
 				</p>
 				<p class="section-form">
@@ -211,22 +247,22 @@
 					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="checkGloo(this.value);">
 				</p>
 				<p class="section-form">
-					<label for="civilite">Civilité <span id="span-civilite" class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="civilite">Civilité <span id="span-civilite" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<select type="text" class="defaut liste civilite-arh" id="civilite">
 						<option value="" disabled="disabled" selected="selected">Sélectionner la civilité</option>
 						<option value="M.">Monsieur</option>
 						<option value="Mme">Madame</option>
 					</select>
 				<p class="section-form">	
-					<label for="nom" id="label-nom">Nom <span id="span-nom" class="error">(Erreur: ce champs est obligatoire)</span></label>
-					<input type="text" class="defaut editable nom-arh" id="nom">
+					<label for="nom" id="label-nom">Nom <span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
+					<input type="text" class="defaut editable nom-arh" id="nom" onkeyup='this.value=replaceSpec(this.value.toUpperCase())'>
 				</p>
 				<p class="section-form">	
-					<label for="prenom">Prénom <span id="span-prenom" class="error">(Erreur: ce champs est obligatoire)</span></label>
-					<input type="text" class="defaut editable prenom-arh" id="prenom">
+					<label for="prenom">Prénom <span id="span-prenom" class="error">(Erreur: ce champ est obligatoire)</span></label>
+					<input type="text" class="defaut editable prenom-arh" id="prenom" onkeyup='this.value=replaceSpec(this.value.toUpperCase())'>
 				</p>
 				<p class="section-form">
-					<label for="ug">UG <span id="span-ug" class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="ug">UG <span id="span-ug" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="ug" onchange="findService(this.value);">
 						<option value="" disabled="disabled" selected="selected">Sélectionnez une UG</option>
 						<?php 
@@ -240,13 +276,13 @@
 					</select>
 				</p>
 				<p class="section-form">
-					<label for="service">Service <span id="span-service" class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="service">Service <span id="span-service" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="service">
 						<option value="" disabled="disabled" selected="selected">Sélectionner un service</option>
 					</select>
 				</p>
 				<p class="section-form">
-					<label for="type-agent">Type agent <span id="span-type-agent" class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="type-agent">Type agent <span id="span-type-agent" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="type-agent" onchange="charcheRegime(this.value);">
 						<option value="" disabled="disabled" selected="selected">Sélectionner le type d'agent</option>
 						<?php
@@ -260,7 +296,7 @@
 					</select>
 				</p>
 				<p class="section-form">	
-					<label for="regime">Régime de travail <span id="span-regime" class="error">(Erreur: ce champs est obligatoire)</span></label>
+					<label for="regime">Régime de travail <span id="span-regime" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="regime">
 						<option value="" disabled="disabled" selected="selected">Sélectionner le régime de travail</option>
 					</select>
@@ -273,6 +309,8 @@
 				<p class="section-form">
 					<button type="button" class="btn_defaut valider" id="valide_ARG_Arrive" onclick="verifierChamps();">Valider<span class="puce puce-droite">&#xf2f6;</span></button>
 					<button type="reset" class="nostyle reset">Réinitialiser les champs</button>
+					
+					<!-- <a href="#" id="test">TEST</a> -->
 					<!-- <a href="#" id="test">TEST</a> -->
 				</p>
 

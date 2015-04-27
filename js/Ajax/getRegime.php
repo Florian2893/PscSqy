@@ -19,7 +19,7 @@
         $resRegime=$mysqli->query(" SELECT `Id_Regime_Travail`, `Regime_Travail` FROM `Regime_Travail` " );
         while ($rowRegime=$resRegime->fetch_array (MYSQLI_ASSOC) )
         {
-            echo '<option value=\"'.$rowRegime['Id_Regime_Travail'].'"';
+            echo '<option value="'.$rowRegime['Id_Regime_Travail'].'"';
             echo '>'.$rowRegime['Regime_Travail'].'</option>';
 
         }
