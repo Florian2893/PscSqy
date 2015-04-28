@@ -1,14 +1,15 @@
 <div id="languette" onclick="ouvrir_panneau();">&#xf2ca;</div>
 <div id="container-notif-admin">
-	<ul>
-		<li>Test</li>
-		<li>Test</li>
-		<li>Test</li>
-		<li>Test</li>
-		<li>Test</li>
-		<li>Test</li>
-		<li>Test</li>
-		<li>Test</li>
+	<ul class="list-notif-admin">
+		<h4 class="titre-notif-admin">Notification Administrateur</h4>
+		<li class="notif-admin">Factures envoyées</li>
+		<li class="notif-admin">Test</li>
+		<li class="notif-admin">Test</li>
+		<li class="notif-admin">Test</li>
+		<li class="notif-admin">Test</li>
+		<li class="notif-admin">Test</li>
+		<li class="notif-admin">Test</li>
+		<li class="notif-admin">Test</li>
 	</ul>
 </div>
 
