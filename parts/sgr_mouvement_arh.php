@@ -83,6 +83,19 @@
 		<script>
 			function chercheParNom(str)
 			{
+				// var liste = [
+				//     "Draggable",
+				//     "Droppable",
+				//     "Resizable",
+				//     "Selectable",
+				//     "Sortable"
+				// ];
+
+				// $('#nom').autocomplete({
+				//     source : liste
+				// });
+
+
 				var str = replaceSpec(str.toUpperCase());
 				document.getElementById("nom").value=str;
 
@@ -106,10 +119,14 @@
 
 						switch(entete){
 							case "0":
-								alert(resUtile);
+								//$('#span-nom').text(resUtile);
+								$('#span-nom').text("(Erreur: " + resUtile + ")");
+								$('#span-nom').removeClass("error").addClass("error_show");
 								break;
 							case "1":
 								//il y a qu'une seule ligne
+								$('#span-nom').text("(Erreur: ce champ est obligatoire)");
+								$('#span-nom').removeClass("error_show").addClass("error");
 								champs = resUtile.split(",");
 								$(function(){
 									$('#matricule').val(champs[0]);
@@ -123,6 +140,7 @@
 
 							case "2":
 								alert(resUtile);
+								$('#span-nom').removeClass("error_show").addClass("error");
 								break;
 
 						}
@@ -204,8 +222,7 @@
 					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="chercheParGloo(this.value);">
 				</p>	
 				<p class="section-form">	
-					<label for="nom">Nom <span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span>
-						<span id="span-nom2" class="error">(Erreur: ce champ est obligatoire)</span></label>
+					<label for="nom">Nom <span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<input type="text" class="defaut editable" id="nom" onkeyup="chercheParNom(this.value);">
 				</p>
 				<p class="section-form">	
