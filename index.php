@@ -16,6 +16,7 @@
 <div id="container">
 <?php 
 $page= "";
+include "parts/notif-admin-test.php";
 include "parts/super_header.php";
 include "parts/header.php";
 ?>

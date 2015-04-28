@@ -3,7 +3,7 @@
 
 	<ul class="list-footer">
 		<li class="link-footer">Contact</li>
-		<li class="link-footer">Sitemap</li>
+		<li class="link-footer">Plan du site</li>
 		<li class="link-footer">Informations légales</li>
 		<li class="link-footer">Crédits</li>
 	</ul>
