@@ -83,79 +83,27 @@
 		<script>
 			function chercheParNom(str)
 			{
-				// var liste = [
-				//     "Draggable",
-				//     "Droppable",
-				//     "Resizable",
-				//     "Selectable",
-				//     "Sortable"
-				// ];
-
-				// $('#nom').autocomplete({
-				//     source : liste
-				// });
-
-
 				var str = replaceSpec(str.toUpperCase());
 				document.getElementById("nom").value=str;
 
-				var xmlhttp; 
-				if (window.XMLHttpRequest)
-				{// code for IE7+, Firefox, Chrome, Opera, Safari
-					xmlhttp=new XMLHttpRequest();
-				}
-				else
-				{// code for IE6, IE5
-					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-				}
-				xmlhttp.onreadystatechange=function()
-				{
-					if (xmlhttp.readyState==4 && xmlhttp.status==200)
-					{
-						var reponse = xmlhttp.responseText;
-						var taille = reponse.length;
-						var entete = reponse.substring(1, 2);
-						var resUtile = reponse.substring(2, taille);
+				//la partie pour la proposition
+			    $("#nom").autocomplete({
+				    source : "js/Ajax/finByName.php?q="+str,
+				    minLength: 2,
+        			select: function(event,ui){
+        				var donnees = ui.item.desc.split(",");
+        				$('#matricule').val(donnees[0]);
+        				$('#nom').val("ddddddd");
+        				$('#prenom').val("dfdfdfdf");
 
-						switch(entete){
-							case "0":
-								//$('#span-nom').text(resUtile);
-								$('#span-nom').text("(Erreur: " + resUtile + ")");
-								$('#span-nom').removeClass("error").addClass("error_show");
-								break;
-							case "1":
-								//il y a qu'une seule ligne
-								$('#span-nom').text("(Erreur: ce champ est obligatoire)");
-								$('#span-nom').removeClass("error_show").addClass("error");
-								champs = resUtile.split(",");
-								$(function(){
-									$('#matricule').val(champs[0]);
-		    						$('#nom').val(champs[1]);
-			    					$('#prenom').val(champs[2]);
-			    					$('#ug-depart').val(champs[3]);
-			    					$('#service-depart').val(champs[4]);
-			    					$('#type-agent').val(champs[5]);
-		    					})
-		    					break;
-
-							case "2":
-								alert(resUtile);
-								$('#span-nom').removeClass("error_show").addClass("error");
-								break;
-
-						}
-						//var reponse = xmlhttp.responseText.split(",");
-						//la partie d'autocomplir
-					}
-				}
-				xmlhttp.open("GET","js/Ajax/finByName.php?q="+str,true);
-				xmlhttp.send();
+		    			//$('#prenom').val(donnees[2]);
+		    			$('#ug-depart').val(donnees[3]);
+		    			$('#service-depart').val(donnees[4]);
+		    			$('#type-agent').val(donnees[5]);
+        			}
+				});				
 			}
-
 		</script>
-
-
-
 
 		<script>
 			function verifierChamps(){
@@ -248,7 +196,7 @@
 				<p class="section-form">
 					<label for="new-ug">Nouvelle UG <span id="span-new-ug" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<select type="text"  class="defaut liste" id="new-ug" onchange="findService(this.value);">
-						<option value="" disabled="disabled" default="default">Sélectionner la nouvelle UG</option>
+						<option value="" disabled="disabled" selected="selected">Sélectionner la nouvelle UG</option>
 						<?php 
 							$resUG=$mysqli->query("SELECT `Id_UG`,`Libelle_UG` FROM `UG` " );
 							while ($rowUG=$resUG->fetch_array (MYSQLI_ASSOC) )
@@ -262,13 +210,13 @@
 				<p class="section-form">
 					<label for="new-service">Nouveau Service <span id="span-new-service" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="new-service">
-						<option value="" disabled="disabled" default="default">Sélectionner le nouveau service</option>
+						<option value="" disabled="disabled" selected="selected">Sélectionner le nouveau service</option>
 					</select>
 				</p>
 				<p class="section-form">	
 					<label for="regime">Régime de travail <span id="span-new-regime" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<select type="text" class="defaut liste" id="regime">
-						<option value="" disabled="disabled" default="default">Sélectionner un régime de travail</option>
+						<option value="" disabled="disabled" selected="selected">Sélectionner un régime de travail</option>
 						<?php
 							$resRegime=$mysqli->query("SELECT `Id_Regime_Travail`, `Regime_Travail` FROM `Regime_Travail`" );
 							while ($rowRegime=$resRegime->fetch_array (MYSQLI_ASSOC) )
