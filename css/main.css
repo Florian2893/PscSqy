@@ -560,6 +560,7 @@ li.link-footer:first-child{
 	width: 30px;
 	height: 30px;
 	position: absolute;
+	position: fixed;
 	right: 0;
 	font-family: ionicons;
 	font-size: 25px;
@@ -571,12 +572,14 @@ li.link-footer:first-child{
 	-o-transition: 0.4s ease;
 	transition: 0.4s ease;
 	cursor: pointer;
+	z-index: 999;
 }
 
 #container-notif-admin{
 	width: 200px;
 	height: 100%;
 	position: absolute;
+	position: fixed;
 	background-color: #666666;
 	right: -200px;
 	overflow: auto;
@@ -588,11 +591,11 @@ li.link-footer:first-child{
 	z-index: 5;
 }
 
-#container-notif-admin:hover{
+/* #container-notif-admin:hover{
 	right: 0;
 	-webkit-transition: 0.4s ease;
 	-moz-transition: 0.4s ease;
 	-ms-transition: 0.4s ease;
 	-o-transition: 0.4s ease;
 	transition: 0.4s ease;
-}
+} */

@@ -1,6 +1,15 @@
 <div id="languette" onclick="ouvrir_panneau();">&#xf2ca;</div>
 <div id="container-notif-admin">
-	test
+	<ul>
+		<li>Test</li>
+		<li>Test</li>
+		<li>Test</li>
+		<li>Test</li>
+		<li>Test</li>
+		<li>Test</li>
+		<li>Test</li>
+		<li>Test</li>
+	</ul>
 </div>
 
 <script>
