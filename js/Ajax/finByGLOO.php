@@ -16,7 +16,11 @@
     //retourner la taille de résultat de recherche, si c'est 0, le matricule est unique OK, sinon KO
     if(sizeof($row) >0)
     {// le matricule est correcte, retourne le nom, prenom, ug, service, regime pour autorempir
-    	echo($row['Nom'].','.$row['Prenom'].','.$row['Libelle_UG'].','.$row['Libelle_service'].','.$row['Type_Agent']);
+
+        $prenom=mb_substr($row["Prenom"],0,1).mb_strtolower(mb_substr($row["Prenom"],1,strlen($row["Prenom"])));
+        $name = $row['Nom'] ." ".$prenom;
+
+    	echo($name.','.$row['Libelle_UG'].','.$row['Libelle_service'].','.$row['Type_Agent']);
     }
 
     

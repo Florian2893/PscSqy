@@ -65,10 +65,9 @@
 		    				//la partie d'autocomplir
 		    				$(function(){
 		    					$('#nom').val(reponse[0]);
-		    					$('#prenom').val(reponse[1]);
-		    					$('#ug-depart').val(reponse[2]);
-		    					$('#service-depart').val(reponse[3]);
-		    					$('#type-agent').val(reponse[4]);
+		    					$('#ug-depart').val(reponse[1]);
+		    					$('#service-depart').val(reponse[2]);
+		    					$('#type-agent').val(reponse[3]);
 
 		    				})
 		    			}
@@ -93,8 +92,6 @@
         			select: function(event,ui){
         				var donnees = ui.item.desc.split(",");
         				$('#matricule').val(donnees[0]);
-        				$('#nom').val("ddddddd");
-        				$('#prenom').val(donnees[2]);
 		    			$('#ug-depart').val(donnees[3]);
 		    			$('#service-depart').val(donnees[4]);
 		    			$('#type-agent').val(donnees[5]);
@@ -168,7 +165,11 @@
 					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="chercheParGloo(this.value);">
 				</p>	
 				<p class="section-form">	
+<<<<<<< Updated upstream
 					<label for="nomprenom">Nom<span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
+=======
+					<label for="nomprenom">Nom <span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
+>>>>>>> Stashed changes
 					<input type="text" class="defaut editable" id="nom" onkeyup="chercheParNom(this.value);">
 				</p>
 				<p class="section-form">

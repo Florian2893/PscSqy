@@ -1,5 +1,10 @@
 <!-- SGR_depart_GDM -->
 
+
+
+
+
+
 	<div class="conteneur-page">
 
 		<div id="fil-ariane">Applications > SGR > Nouveau départ</div> <!--  FIL D'ARIANE -->
