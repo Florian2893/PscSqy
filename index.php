@@ -68,7 +68,7 @@ include "parts/header.php";
 			});
 			$('#date-depart-retraite').datepicker({
 				dateFormat : 'dd/mm/yy',
-				minDate : +1
+				minDate : '#date-depart'+1
 			});
 		})
 
