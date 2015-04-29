@@ -2,6 +2,18 @@
 
 <?php include"php/connexion.php"; ?>
 
+<script>
+	// $(function(){
+		
+	// 	//alert($('#civilite').next().val());
+	// })
+	function chargerDonnes(){
+		alert('here');
+	}
+</script>
+
+
+
 	<div class="conteneur-page">
 
 		<div id="fil-ariane">Applications > SGR > Nouvel Arrivant</div> <!--  FIL D'ARIANE -->
@@ -17,10 +29,27 @@
 					<th>Service</th>
 					<th>Action</th>
 				</tr>
+				<tr onclick="abc();">
+					<td>aaa</td>
+					<td>bbb</td>
+					<td>ccc</td>
+				</tr>
 				<?php
-
-
-
+					$resList=$mysqli->query("SELECT  `Nom` ,  `Prenom` ,  `Libelle_service` ,  `libelle_operation` 
+						FROM  `SGR` ,  `User_Table` ,  `SGR_operation` ,  `Service` 
+						WHERE  `SGR`.`matricule` =  `User_Table`.`matricule` 
+						AND  `SGR`.`id_operation` =  `SGR_operation`.`id_operation` 
+						AND  `User_Table`.`id_service` =  `Service`.`Id_service` " );
+					while ($rowList=$resList->fetch_array (MYSQLI_ASSOC) )
+					{
+						$prenom=mb_substr($rowList["Prenom"],0,1).mb_strtolower(mb_substr($rowList["Prenom"],1,strlen($rowList["Prenom"])));
+        				$name = $rowList['Nom'] ." ".$prenom;
+        				echo '<tr onclick="chargerDonnes();">';
+						echo '<td>'.$name.'</td>';
+						echo '<td>'.$rowList['Libelle_service'].'</td>';
+						echo '<td>'.$rowList['libelle_operation'].'</td>';
+						echo '</tr>';
+					}
 				?>
 			</table>
 		</div>
@@ -29,7 +58,7 @@
 			<fieldset class="recap-profil">
 				<legend>Récapitulatif</legend>
 				<div class="info1">
-					<div class="type-info">Civilité : </div>Test <br>
+					<div class="type-info" id="civilite" >Civilité : </div>Test <br>
 					<div class="type-info">Nom : </div>Test <br>
 					<div class="type-info">Prénom : </div>Test <br>
 					<div class="type-info">Date d'arrivée : </div>Test <br>
