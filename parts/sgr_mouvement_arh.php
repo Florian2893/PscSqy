@@ -94,9 +94,7 @@
         				var donnees = ui.item.desc.split(",");
         				$('#matricule').val(donnees[0]);
         				$('#nom').val("ddddddd");
-        				$('#prenom').val("dfdfdfdf");
-
-		    			//$('#prenom').val(donnees[2]);
+        				$('#prenom').val(donnees[2]);
 		    			$('#ug-depart').val(donnees[3]);
 		    			$('#service-depart').val(donnees[4]);
 		    			$('#type-agent').val(donnees[5]);
@@ -170,13 +168,10 @@
 					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="chercheParGloo(this.value);">
 				</p>	
 				<p class="section-form">	
-					<label for="nom">Nom <span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
+					<label for="nomprenom">Nom (Prénom) (saisir le nom)<span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<input type="text" class="defaut editable" id="nom" onkeyup="chercheParNom(this.value);">
 				</p>
-				<p class="section-form">	
-					<label for="prenom">Prénom</label>
-					<input type="text" class="defaut autocomplete" id="prenom">
-				</p>
+				
 				<p class="section-form">
 					<label for="ug-depart">UG de départ</label>
 					<input type="text"  class="defaut autocomplete" id="ug-depart">
