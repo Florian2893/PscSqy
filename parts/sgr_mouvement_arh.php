@@ -87,8 +87,8 @@
 
 				//la partie pour la proposition
 			    $("#nom").autocomplete({
-				    source : "js/Ajax/finByName.php?q="+str,
-				    minLength: 2,
+			    	source : "js/Ajax/finByName.php?q="+str,
+				   	minLength: 2,
         			select: function(event,ui){
         				var donnees = ui.item.desc.split(",");
         				$('#matricule').val(donnees[0]);
@@ -165,7 +165,7 @@
 					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="chercheParGloo(this.value);">
 				</p>	
 				<p class="section-form">	
-					<label for="nomprenom">Nom <span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
+					<label for="nom">Nom <span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<input type="text" class="defaut editable" id="nom" onkeyup="chercheParNom(this.value);">
 				</p>
 				<p class="section-form">
