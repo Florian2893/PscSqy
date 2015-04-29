@@ -69,7 +69,7 @@
 					<div class="type-info">Matricule : <span class="donnes-recap" id="matricule">Test</span></div><br>
 					<div class="type-info">Type agent : <span class="donnes-recap" id="type-agent">Test</span></div><br>
 				</div>
-				<div class="type-info recap-comment">Commentaire de l'ARH : <span class="donnes-recap" id="commentaire">Test</span></div>
+				<div class="type-info recap-comment">Commentaire de l'ARH : <span class="donnes-recap" id="commentaire-arh">Test</span></div>
 			</fieldset>
 
 			<div class="formulaire-sgr-rdo">
