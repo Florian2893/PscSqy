@@ -168,10 +168,9 @@
 					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="chercheParGloo(this.value);">
 				</p>	
 				<p class="section-form">	
-					<label for="nomprenom">Nom (Prénom) (saisir le nom)<span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
+					<label for="nomprenom">Nom<span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
 					<input type="text" class="defaut editable" id="nom" onkeyup="chercheParNom(this.value);">
 				</p>
-				
 				<p class="section-form">
 					<label for="ug-depart">UG de départ</label>
 					<input type="text"  class="defaut autocomplete" id="ug-depart">

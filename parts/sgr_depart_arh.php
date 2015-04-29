@@ -21,10 +21,6 @@
 					<label for="nom" id="label-nom">Nom</label>
 					<input type="text" class="defaut editable" id="nom">
 				</p>
-				<p class="section-form">	
-					<label for="prenom">Prénom</label>
-					<input type="text" class="defaut autocomplete" id="prenom">
-				</p>
 				<p class="section-form">
 					<label for="ug">UG</label>
 					<input type="text" class="defaut autocomplete" id="ug">
@@ -45,7 +41,7 @@
 				</p>
 				<p class="section-form date-picker-retraite">
 					<label for="date-depart">Date de départ à la retraite</label>
-					<input type="text" class="defaut editable" id="date-depart">
+					<input type="text" class="defaut editable" id="date-depart-retraite">
 				</p>
 				<p class="section-form">
 					<label for="commentaire">Commentaire</label>

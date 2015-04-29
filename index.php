@@ -66,6 +66,10 @@ include "parts/header.php";
 				dateFormat : 'dd/mm/yy',
 				minDate : +1
 			});
+			$('#date-depart-retraite').datepicker({
+				dateFormat : 'dd/mm/yy',
+				minDate : +1
+			});
 		})
 
 		$(function() {
