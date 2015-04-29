@@ -165,11 +165,7 @@
 					<input type="text" class="defaut editable" id="matricule" value="GL00" maxlength="11" onkeyup="chercheParGloo(this.value);">
 				</p>	
 				<p class="section-form">	
-<<<<<<< Updated upstream
-					<label for="nomprenom">Nom<span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
-=======
 					<label for="nomprenom">Nom <span id="span-nom" class="error">(Erreur: ce champ est obligatoire)</span></label>
->>>>>>> Stashed changes
 					<input type="text" class="defaut editable" id="nom" onkeyup="chercheParNom(this.value);">
 				</p>
 				<p class="section-form">

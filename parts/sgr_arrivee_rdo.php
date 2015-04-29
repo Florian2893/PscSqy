@@ -1,5 +1,7 @@
 <!-- SGR_arrivee_RDO -->
 
+<?php include"php/connexion.php"; ?>
+
 	<div class="conteneur-page">
 
 		<div id="fil-ariane">Applications > SGR > Nouvel Arrivant</div> <!--  FIL D'ARIANE -->
@@ -15,26 +17,11 @@
 					<th>Service</th>
 					<th>Action</th>
 				</tr>
-				<tr>
-					<td>Giacomo Guilizzoni</td>
-					<td>SUC</td>
-					<td>Mouvement interne</td>
-				</tr>
-				<tr>
-					<td>Giacomo Guilizzoni</td>
-					<td>SUC</td>
-					<td>Mouvement interne</td>
-				</tr>
-				<tr>
-					<td>Giacomo Guilizzoni</td>
-					<td>SUC</td>
-					<td>Mouvement interne</td>
-				</tr>
-				<tr>
-					<td>Giacomo Guilizzoni</td>
-					<td>SUC</td>
-					<td>Mouvement interne</td>
-				</tr>
+				<?php
+
+
+
+				?>
 			</table>
 		</div>
 
