@@ -184,7 +184,7 @@
 				</p>
 				<p class="section-form">
 					<label for="commentaire">Commentaire</label>
-					<textarea class="textarea-comment" name="" id="commentaire" maxlength="200"></textarea>
+					<textarea class="textarea-comment" name="" id="commentaire" maxlength="200" onclick="test();"></textarea>
 				</p>
 				<div class="clear"></div>
 				<p class="section-form">

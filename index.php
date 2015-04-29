@@ -53,6 +53,7 @@ include "parts/header.php";
 
 	<script type="text/javascript">
 		$('document').ready(function(){
+
 			$.datepicker.setDefaults($.datepicker.regional["fr"]);
 			$('#date-arrive').datepicker({
 				dateFormat : 'dd/mm/yy',
@@ -64,12 +65,15 @@ include "parts/header.php";
 			});
 			$('#date-depart').datepicker({
 				dateFormat : 'dd/mm/yy',
-				minDate : +1
+				minDate : +1,
+				onSelect: function(selectedDate){
+					$('#date-depart-retraite').datepicker("option","minDate", selectedDate);
+				}	
 			});
 			$('#date-depart-retraite').datepicker({
-				dateFormat : 'dd/mm/yy',
-				minDate : '#date-depart'+1
+				dateFormat : 'dd/mm/yy'
 			});
+			
 		})
 
 		$(function() {
