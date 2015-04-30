@@ -88,10 +88,10 @@
 			<fieldset class="recap-profil">
 				<legend>Récapitulatif</legend>
 				<div class="info1">
-					<div class="type-info">Civilité : <span class="donnes-recap" id="civilite">Test</span></div> <br>
+					<div class="type-info">Civilité : <span class="donnes-recap" id="civilite">Test</span></div><br>
 					<div class="type-info">Nom : <span class="donnes-recap" id="nom">Test</span></div> <br>
 					<div class="type-info">Prénom : <span class="donnes-recap" id="prenom">Test</span></div> <br>
-					<div class="type-info">Date d'arrivée : <span class="donnes-recap" id="date-darrive">Test</span></div> <br>
+					<div class="type-info">Date d'arrivée : <span class="donnes-recap" id="date-arrive">Test</span></div> <br>
 				</div>
 				<div class="info1">
 					<div class="type-info">UG : <span class="donnes-recap" id="ug">Test</span></div> <br>
