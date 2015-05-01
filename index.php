@@ -76,13 +76,6 @@ include "parts/header.php";
 			
 		})
 
-		$(function() {
-			$('tr').click(function() {
-				if ($(this).hasClass('')) {
-					$(this).addClass('selected');
-					$(this).siblings().removeClass('selected');
-				}
-			});
 		});
 	</script>
 </body>

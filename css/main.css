@@ -235,10 +235,13 @@ h2.titre-partie-section{
 
 .left-part-table{
 	float: left;
+	min-height: 300px;
 }
 
 .selection{
 	border-bottom: 1px solid #c2c2c2;
+	max-width: 400px;
+	margin-bottom: 20px;
 }
 
 .selection th{
@@ -276,6 +279,14 @@ h2.titre-partie-section{
 .error_show{
 	font-size: 12px;
 	color: red;
+}
+
+.consigne-rdo{
+	text-align: center;
+	min-width: 500px;
+	color: #c9c9c9;
+	font-size: 24px;
+	padding-top: 20px;
 }
 
 /*************************************/
@@ -502,6 +513,10 @@ legend{
 	border: 1px solid #808080;
 	background-color: #efefef;
 }
+.recap-droit-maia-hidden{
+	display: none;
+}
+
 
 .recap-droit-maia li.info-droit-maia{
 	list-style: none;
@@ -618,3 +633,4 @@ li.notif-admin {
   padding: 15px;
   border-bottom: 1px solid #d9d9d9;
 }
+
