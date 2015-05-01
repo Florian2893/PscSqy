@@ -2,18 +2,20 @@
 			<fieldset class="recap-profil">
 				<legend>Récapitulatif</legend>
 				<div class="info1">
-					<div class="type-info">Civilité : <span class="donnes-recap" id="civilite"></span></div><br>
-					<div class="type-info">Nom : <span class="donnes-recap" id="nom"></span></div><br>
-					<div class="type-info">Prénom : <span class="donnes-recap" id="prenom"></span></div><br>
-					<div class="type-info">Date d'arrivée : <span class="donnes-recap" id=""></span></div><br>
+
+					<div class="type-info">Civilité : <span class="donnes-recap" id="civilite">Test</span></div><br>
+					<div class="type-info">Nom : <span class="donnes-recap" id="nom">Test</span></div><br>
+					<div class="type-info">Prénom : <span class="donnes-recap" id="prenom">Test</span></div><br>
+					<div class="type-info">Date d'arrivée : <span class="donnes-recap" id="date-arrive">Test</span></div><br>
 				</div>
 				<div class="info1">
-					<div class="type-info">UG : <span class="donnes-recap" id="ug"></span></div><br>
-					<div class="type-info">Service : <span class="donnes-recap" id="service"></span></div><br>
-					<div class="type-info">Matricule : <span class="donnes-recap" id="matricule"></span></div><br>
-					<div class="type-info">Type agent : <span class="donnes-recap" id="type-agent"></span></div><br>
+					<div class="type-info">UG : <span class="donnes-recap" id="ug">Test</span></div><br>
+					<div class="type-info">Service : <span class="donnes-recap" id="service">Test</span></div><br>
+					<div class="type-info">Matricule : <span class="donnes-recap" id="matricule">Test</span></div><br>
+					<div class="type-info">Type agent : <span class="donnes-recap" id="type-agent">Test</span></div><br>
 				</div>
-				<div class="type-info recap-comment">Commentaire de l'ARH : <span class="donnes-recap" id="commentaire-arh"></span></div> 
+				<div class="type-info recap-comment">Commentaire de l'ARH : <span class="donnes-recap" id="commentaire-arh">Test</span></div>
+
 			</fieldset>
 
 			<div class="formulaire-sgr-rdo">
