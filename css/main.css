@@ -584,11 +584,6 @@ li.link-footer:first-child{
 	font-size: 25px;
 	text-align: center;
 	color: #ffffff;
-	-webkit-transition: 0.4s ease;
-	-moz-transition: 0.4s ease;
-	-ms-transition: 0.4s ease;
-	-o-transition: 0.4s ease;
-	transition: 0.4s ease;
 	cursor: pointer;
 	z-index: 999;
 }
@@ -605,11 +600,6 @@ li.link-footer:first-child{
 	background-color: #666666;
 	right: -200px;
 	overflow: auto;
-	-webkit-transition: 0.4s ease;
-	-moz-transition: 0.4s ease;
-	-ms-transition: 0.4s ease;
-	-o-transition: 0.4s ease;
-	transition: 0.4s ease;
 	z-index: 5;
 }
 

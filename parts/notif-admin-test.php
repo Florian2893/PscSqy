@@ -16,13 +16,15 @@
 <script>
 	function ouvrir_panneau(){
 		if ($('#container-notif-admin').css('right')=='-200px'){
-			$('#container-notif-admin').css('right','0');
-			$('#languette').css('right','200px');
+			$('#container-notif-admin, #languette').animate({
+				"right":"+=200"
+			},"fast");
 			$('#languette').html('&#xf30f;');
 		}
 		else{
-			$('#container-notif-admin').css('right','-200px');
-			$('#languette').css('right','0');
+			$('#container-notif-admin, #languette').animate({
+				"right":"-=200"
+			},"fast");
 			$('#languette').html('&#xf2ca;');
 		}
 	}
