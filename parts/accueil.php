@@ -1,3 +1,3 @@
 <div class="conteneur-page">
-	TEST
-</div>	
+	Ici le contenu de la page d'accueil !
+</div>

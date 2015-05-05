@@ -97,12 +97,10 @@ li.link-menu:hover{
 	border-top: 3px solid #E60028;
 }
 
-/* .link-app{
-	position: relative;
-	right: 0;
-	padding: 6px 0;
-	margin-top: -6px;
-} */
+.list-menu a{
+	text-decoration: none;
+	color: #000000;
+}
 
 .link-app:hover{
 	border-top: 3px solid #E60028;

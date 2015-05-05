@@ -9,10 +9,10 @@
 
 		<div id="main_nav">
 			<ul class="list-menu">
-				<li class="link-menu">Actu du PSC</li>
-				<li class="link-menu">Agences</li>
-				<li class="link-menu">Procédures</li>
-				<li class="link-menu">Membres</li>
+				<a href="index.php?page=accueil"><li class="link-menu">Accueil</li></a>
+				<li class="link-menu">L'organisation du PSC</li>
+				<li class="link-menu">Les procédés</li>
+				<li class="link-menu">L'espace CE et bons plans</li>
 				<li class="link-menu">Contacts</li>
 				<li class="link-menu">Applications
 					<ul class="sous-rubrique">
