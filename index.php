@@ -74,8 +74,6 @@ include "parts/header.php";
 				dateFormat : 'dd/mm/yy'
 			});
 			
-		})
-
 		});
 	</script>
 </body>
